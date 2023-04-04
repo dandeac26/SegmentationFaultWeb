@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
         <Image src="/images/applogo.png" height="30px" />
         <Image
           src="/images/title.svg"
-          height="46px"
+          height="45px"
           display={{ base: "none", md: "unset" }}
         />
       </Flex>
@@ -18,5 +18,5 @@ const Navbar: React.FC = () => {
       <RightContent />
     </Flex>
   );
-};
+};// this is a comment
 export default Navbar;
