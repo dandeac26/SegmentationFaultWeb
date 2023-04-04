@@ -10,12 +10,13 @@ const Navbar: React.FC = () => {
         <Image src="/images/applogo.png" height="30px" />
         <Image
           src="/images/title.svg"
-          height="45px"
+          height="46px"
+          marginRight="15px"
           display={{ base: "none", md: "unset" }}
         />
       </Flex>
       <SearchInput />
-      <RightContent />
+      <RightContent/>
     </Flex>
   );
 };// this is a comment

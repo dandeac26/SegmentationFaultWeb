@@ -10,10 +10,12 @@ import {
   ModalFooter,
   useDisclosure,
   Flex,
+  Text,
 } from "@chakra-ui/react";
 import React from "react";
 import { useRecoilState } from "recoil";
 import AuthInputs from "./AuthInputs";
+import OAuthButtons from "./OAuthButtons";
 
 const AuthModal: React.FC = () => {
   //const { isOpen, onOpen, onClose } = useDisclosure();
@@ -29,9 +31,10 @@ const AuthModal: React.FC = () => {
       <Modal isOpen={modalState.open} onClose={handleClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>
+          <ModalHeader textAlign="center">
             {modalState.view === "login" && "Login"}
             {modalState.view === "signup" && "Signup"}
+            {modalState.view === "resetPassword" && "Reset Password"}
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody
@@ -45,10 +48,10 @@ const AuthModal: React.FC = () => {
               align="center"
               justify="center"
               width="70%"
-              border="1px solid red"
             >
               
-              {/* { <OAuthButtons/>} */}
+              { <OAuthButtons/>}
+              <Text color="gray.400" fontWeight={700}>Or</Text>
               <AuthInputs/>
               {/* {<ResetPassword/> } */}
             </Flex>
