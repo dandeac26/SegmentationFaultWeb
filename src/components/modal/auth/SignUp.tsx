@@ -41,7 +41,7 @@ const SignUp:React.FC = () => {
     }))
   }
 
-  return <form>
+  return <form onSubmit={onSubmit}>
     <Input 
       required
       name="email" 
@@ -56,13 +56,13 @@ const SignUp:React.FC = () => {
       _hover={{
         bg:"white",
         border:"1px solid",
-        borderColor: "blue.500",
+        borderColor: "brand.300",
       }}
       _focus={{
         outline: "none",
         bg:"white",
         border:"1px solid",
-        borderColor: "blue.500",
+        borderColor: "brand.300",
       }}
       bg="gray.50"
     />
@@ -80,13 +80,13 @@ const SignUp:React.FC = () => {
       _hover={{
         bg:"white",
         border:"1px solid",
-        borderColor: "blue.500",
+        borderColor: "brand.300",
       }}
       _focus={{
         outline: "none",
         bg:"white",
         border:"1px solid",
-        borderColor: "blue.500",
+        borderColor: "brand.300",
       }}
       bg="gray.50"
     />
@@ -104,19 +104,19 @@ const SignUp:React.FC = () => {
       _hover={{
         bg:"white",
         border:"1px solid",
-        borderColor: "blue.500",
+        borderColor: "brand.300",
       }}
       _focus={{
         outline: "none",
         bg:"white",
         border:"1px solid",
-        borderColor: "blue.500",
+        borderColor: "brand.300",
       }}
       bg="gray.50"
     />
     {error && (
         <Text textAlign='center' color="red" fontSize="10pt">
-            {error}Passwords do not match!
+            {error}
         </Text>
     )}
     
@@ -132,7 +132,7 @@ const SignUp:React.FC = () => {
     <Flex fontSize='9pt' justifyContent='center' mt={3}>
       <Text mr={1}>Already have an account?</Text>
       <Text 
-        color="blue.500" 
+        color="brand.300" 
         fontWeight={700} 
         cursor="pointer"
         onClick={()=> setAuthModalState((prev)=>({

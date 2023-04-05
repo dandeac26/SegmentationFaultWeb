@@ -5,12 +5,12 @@ import RightContent from "./rightContent/RightContent";
 
 const Navbar: React.FC = () => {
   return (
-    <Flex bg="brand.100" height="44px" padding="6px 12px">
+    <Flex bg="brand.100" height="45px" padding="6px 12px">
       <Flex align="center">
-        <Image src="/images/applogo.png" height="30px" />
+        <Image src="/images/applogo.png" height="36px" marginRight="5px"/>
         <Image
           src="/images/title.svg"
-          height="46px"
+          height="45px"
           marginRight="15px"
           display={{ base: "none", md: "unset" }}
         />

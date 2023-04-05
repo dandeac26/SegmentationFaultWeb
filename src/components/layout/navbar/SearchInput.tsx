@@ -12,7 +12,7 @@ const SearchInput: React.FC<SearchInputProps> = () => {
       <InputGroup>
         <InputLeftElement
           pointerEvents="none"
-          children={<SearchIcon color="gray.300" mb={1} />}
+          children={<SearchIcon color="gray.300" mb={3} />}
         />
         <Input
           placeholder="search question"
@@ -28,7 +28,7 @@ const SearchInput: React.FC<SearchInputProps> = () => {
             border: "1px solid",
             borderColor: "lightblue",
           }}
-          height="34px"
+          height="27px"
           bg="gray.50"
         />
       </InputGroup>

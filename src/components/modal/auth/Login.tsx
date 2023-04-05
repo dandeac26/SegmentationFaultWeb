@@ -40,7 +40,7 @@ const Login: React.FC<LoginProps> = () => {
       _hover={{
         bg:"white",
         border:"1px solid",
-        borderColor: "blue.500",
+        borderColor: "brand.300",
       }}
       _focus={{
         outline: "none",
@@ -64,7 +64,7 @@ const Login: React.FC<LoginProps> = () => {
       _hover={{
         bg:"white",
         border:"1px solid",
-        borderColor: "blue.500",
+        borderColor: "brand.300",
       }}
       _focus={{
         outline: "none",
@@ -85,7 +85,7 @@ const Login: React.FC<LoginProps> = () => {
     <Flex fontSize='9pt' justifyContent='center' mt={3}>
       <Text mr={1}>New here?</Text>
       <Text 
-        color="blue.500" 
+        color="brand.300" 
         fontWeight={700} 
         cursor="pointer"
         onClick={()=> setAuthModalState((prev)=>({

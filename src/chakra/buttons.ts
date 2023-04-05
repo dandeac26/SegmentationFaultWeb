@@ -21,22 +21,26 @@ export const Button: ComponentStyleConfig = {
   variants: {
     solid: {
       color: "white",
-      bg: "blue.500",
+      bg: "brand.300",
+      
       _hover: {
-        bg: "blue.400",
+        bg: "brand.500",
       },
     },
     outline: {
-      color: "blue.500",
+      color: "brand.400",
       border: "1px solid",
-      borderColor: "blue.500",
+      borderColor: "brand.400",
+      _hover: {
+        bg: "brand.600",
+      },
     },
     oauth: {
       height: "34px",
       border: "1px solid",
-      borderColor: "gray.300",
+      borderColor: "brand.300",
       _hover: {
-        bg: "gray.50",
+        bg: "bg.50",
       },
     },
   },

@@ -4,12 +4,18 @@ import { getFirestore } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
+  // apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  // authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  // projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  // storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  // messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  // appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
+  apiKey: "AIzaSyDEdcfzApku76ynlqM4X8Yn66i610X20U4",
+  authDomain: "segmentationfaultweb.firebaseapp.com",
+  projectId: "segmentationfaultweb",
+  storageBucket: "segmentationfaultweb.appspot.com",
+  messagingSenderId: "534619751285",
+  appId: "1:534619751285:web:f16c87e696be15bf97093c"
 };
 
 // Initialize Firebase for server side rendering
