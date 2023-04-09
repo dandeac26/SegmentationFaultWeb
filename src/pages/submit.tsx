@@ -47,7 +47,7 @@ const CreateQuestion: NextPage = () => {
         {[
           <>
             <Box p="14px 0px" borderBottom="1px solid" borderColor="brand.400">
-              <Text fontWeight={600} color="brand.400">
+              <Text fontWeight={600} fontSize={26} color="brand.400">
                 Create a question
               </Text>
             </Box>

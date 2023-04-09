@@ -28,7 +28,7 @@ const SearchInput: React.FC<SearchInputProps> = () => {
             border: "1px solid",
             borderColor: "lightblue",
           }}
-          height="27px"
+          height="30px"
           bg="gray.50"
         />
       </InputGroup>
