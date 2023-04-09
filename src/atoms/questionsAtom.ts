@@ -1,50 +1,49 @@
 import { atom } from "recoil";
 import { Timestamp } from "firebase/firestore";
 
-export type Post = {
+export type Question = {
   id: string;
   userDisplayText: string; // change to authorDisplayText
   creatorId: string;
   title: string;
   body: string;
-  numberOfComments: number;
+  numberOfAnswers: number;
   voteStatus: number;
   currentUserVoteStatus?: {
     id: string;
     voteValue: number;
   };
   imageURL?: string;
-  postIdx?: number;
+  questionIdx?: number;
   createdAt?: Timestamp;
   editedAt?: Timestamp;
 };
 
-export type PostVote = {
+export type QuestionVote = {
   id?: string;
-  postId: string;
-  communityId: string;
+  questionId: string;
   voteValue: number;
 };
 
-interface PostState {
-  selectedPost: Post | null;
-  posts: Post[];
-  postVotes: PostVote[];
-  postsCache: {
-    [key: string]: Post[];
+interface QuestionState {
+  selectedQuestion: Question | null;
+  questions: Question[];
+  questionVotes: QuestionVote[];
+  questionsCache: {
+    [key: string]: Question[];
   };
-  postUpdateRequired: boolean;
+  questionUpdateRequired: boolean;
 }
 
-export const defaultPostState: PostState = {
-  selectedPost: null,
-  posts: [],
-  postVotes: [],
-  postsCache: {},
-  postUpdateRequired: true,
+export const defaultQuestionState: QuestionState = {
+  selectedQuestion: null,
+  questions: [],
+  questionVotes: [],
+  questionsCache: {},
+  questionUpdateRequired: true,
 };
 
-export const postState = atom({
-  key: "postState",
-  default: defaultPostState,
+export const questionState = atom({
+  key: "questionState",
+  default: defaultQuestionState,
 });
