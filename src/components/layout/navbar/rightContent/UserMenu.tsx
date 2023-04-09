@@ -63,7 +63,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
                   </Text>
                   <Flex alignItems="center">
                     <Icon as={IoSparkles} color="brand.100" mr={1} />
-                    <Text color="gray.400">1 karma</Text>
+                    <Text color="gray.400">1 skillpoint</Text>
                   </Flex>
                 </Box>
               </>

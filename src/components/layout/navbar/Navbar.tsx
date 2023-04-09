@@ -11,11 +11,11 @@ const Navbar: React.FC = () => {
   const router = useRouter();
   return (
     <Flex
-      bg="brand.100"
+      bg="brand.900"
       height="45px"
       padding="6px 12px"
       border="1px"
-      borderColor="brand.100"
+      borderColor="brand.900"
       borderBottomColor="black"
     >
       <Flex align="center">

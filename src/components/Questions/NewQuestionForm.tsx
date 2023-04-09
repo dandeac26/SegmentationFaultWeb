@@ -25,7 +25,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { firestore, storage } from "@/firebase/clientApp";
 import TabItem from "./TabItem";
-import { postState } from "@/atoms/questionsAtom";
+import { questionState } from "@/atoms/questionsAtom";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import TextInputs from "./TextInputs";
 import ImageUpload from "./ImageUpload";
@@ -50,19 +50,20 @@ const NewQuestionForm: React.FC<NewQuestionFormProps> = ({ user }) => {
   const [textInputs, setTextInputs] = useState({
     title: "",
     body: "",
+    tags: "",
   });
   const [selectedFile, setSelectedFile] = useState<string>();
   const selectFileRef = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
-  const setPostItems = useSetRecoilState(postState);
+  const setQuestionItems = useSetRecoilState(questionState);
 
-  const handleCreatePost = async () => {
+  const handleCreateQuestion = async () => {
     setLoading(true);
-    const { title, body } = textInputs;
+    const { title, body, tags } = textInputs;
     try {
-      const postDocRef = await addDoc(collection(firestore, "posts"), {
+      const questionDocRef = await addDoc(collection(firestore, "questions"), {
         creatorId: user.uid,
         userDisplayText: user.email!.split("@")[0],
         title,
@@ -73,28 +74,28 @@ const NewQuestionForm: React.FC<NewQuestionFormProps> = ({ user }) => {
         editedAt: serverTimestamp(),
       });
 
-      console.log("HERE IS NEW POST ID", postDocRef.id);
+      console.log("HERE IS NEW POST ID", questionDocRef.id);
 
       // // check if selectedFile exists, if it does, do image processing
       if (selectedFile) {
-        const imageRef = ref(storage, `posts/${postDocRef.id}/image`);
+        const imageRef = ref(storage, `questions/${questionDocRef.id}/image`);
         await uploadString(imageRef, selectedFile, "data_url");
         const downloadURL = await getDownloadURL(imageRef);
-        await updateDoc(postDocRef, {
+        await updateDoc(questionDocRef, {
           imageURL: downloadURL,
         });
         console.log("HERE IS DOWNLOAD URL", downloadURL);
       }
 
-      // Clear the cache to cause a refetch of the posts
-      setPostItems((prev) => ({
+      // Clear the cache to cause a refetch of the questions
+      setQuestionItems((prev) => ({
         ...prev,
-        postUpdateRequired: true,
+        questionUpdateRequired: true,
       }));
       router.back();
     } catch (error) {
-      console.log("createPost error", error);
-      setError("Error creating post");
+      console.log("createQuestion error", error);
+      setError("Error creating question");
     }
     setLoading(false);
   };
@@ -122,7 +123,7 @@ const NewQuestionForm: React.FC<NewQuestionFormProps> = ({ user }) => {
   };
 
   return (
-    <Flex direction="column" bg="brand.200" borderRadius={4} mt={2}>
+    <Flex direction="column" bg="brand.900" borderRadius={4} mt={2}>
       <Flex width="100%">
         {formTabs.map((item, index) => (
           <TabItem
@@ -138,7 +139,7 @@ const NewQuestionForm: React.FC<NewQuestionFormProps> = ({ user }) => {
           <TextInputs
             textInputs={textInputs}
             onChange={onTextChange}
-            handleCreatePost={handleCreatePost}
+            handleCreateQuestion={handleCreateQuestion}
             loading={loading}
           />
         )}

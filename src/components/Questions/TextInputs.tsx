@@ -10,14 +10,14 @@ type TextInputsProps = {
   onChange: (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
-  handleCreatePost: () => void;
+  handleCreateQuestion: () => void;
   loading: boolean;
 };
 
 const TextInputs: React.FC<TextInputsProps> = ({
   textInputs,
   onChange,
-  handleCreatePost,
+  handleCreateQuestion,
   loading,
 }) => {
   return (
@@ -31,7 +31,7 @@ const TextInputs: React.FC<TextInputsProps> = ({
         _placeholder={{ color: "gray.500" }}
         _focus={{
           outline: "none",
-          bg: "#335555",
+          bg: "#282e2e",
         }}
         fontSize="10pt"
         borderRadius={4}
@@ -48,20 +48,20 @@ const TextInputs: React.FC<TextInputsProps> = ({
         _placeholder={{ color: "gray.500" }}
         _focus={{
           outline: "none",
-          bg: "#335555",
+          bg: "#282e2e",
         }}
         height="100px"
       />
       <Input
         name="tags"
-        value={textInputs.title}
+        value={textInputs.tags}
         onChange={onChange}
         color="white"
         focusBorderColor="brand.300"
         _placeholder={{ color: "gray.500" }}
         _focus={{
           outline: "none",
-          bg: "#335555",
+          bg: "#282e2e",
         }}
         fontSize="10pt"
         borderRadius={4}
@@ -73,7 +73,7 @@ const TextInputs: React.FC<TextInputsProps> = ({
           padding="0px 30px"
           disabled={!textInputs.title}
           isLoading={loading}
-          onClick={handleCreatePost}
+          onClick={handleCreateQuestion}
         >
           Ask Question
         </Button>

@@ -54,7 +54,7 @@ const CreateQuestion: NextPage = () => {
             {user && <NewQuestionForm user={user} />}
           </>,
           <>
-            <Card ml={10} width="75%" bg="brand.200">
+            <Card ml={10} width="75%" bg="brand.900">
               <CardHeader>
                 <Heading size="md" color="brand.400">
                   Writing a good Question
