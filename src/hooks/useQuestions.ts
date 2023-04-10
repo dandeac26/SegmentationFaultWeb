@@ -50,13 +50,10 @@ const useQuestions = () => {
     }
 
     const { voteStatus } = question;
-    // const existingVote = question.currentUserVoteStatus;
+
     const existingVote = questionStateValue.questionVotes.find(
       (vote) => vote.questionId === question.id
     );
-
-    // is this an upvote or a downvote?
-    // has this user voted on this question already? was it up or down?
 
     try {
       let voteChange = vote;
@@ -79,9 +76,6 @@ const useQuestions = () => {
         };
 
         console.log("NEW VOTE!!!", newVote);
-
-        // APRIL 25 - DON'T THINK WE NEED THIS
-        // newVote.id = questionVoteRef.id;
 
         batch.set(questionVoteRef, newVote);
 
@@ -146,13 +140,11 @@ const useQuestions = () => {
           ...updatedState.questionsCache,
         },
       };
-      // }
 
-      /**
-       * Optimistically update the UI
-       * Used for single page view [pid]
-       * since we don't have real-time listener there
-       */
+      // Optimistically update the UI
+      // Used for single page view [pid]
+      // since no real-time listener there
+
       if (updatedState.selectedQuestion) {
         updatedState = {
           ...updatedState,
@@ -195,66 +187,15 @@ const useQuestions = () => {
         },
       }));
 
-      /**
-       * Cloud Function will trigger on question delete
-       * to delete all comments with questionId === question.id
-       */
+      //Cloud Function will trigger on question delete
+      //to delete all comments with questionId === question.id
+
       return true;
     } catch (error) {
       console.log("THERE WAS AN ERROR", error);
       return false;
     }
   };
-  //// my comment
-  // const getCommunityQuestionVotes = async (communityId: string) => {
-  //   const questionVotesQuery = query(
-  //     collection(firestore, `users/${user?.uid}/questionVotes`),
-  //     where("communityId", "==", communityId)
-  //   );
-  //   const questionVoteDocs = await getDocs(questionVotesQuery);
-  //   const questionVotes = questionVoteDocs.docs.map((doc) => ({
-  //     id: doc.id,
-  //     ...doc.data(),
-  //   }));
-  //   setQuestionStateValue((prev) => ({
-  //     ...prev,
-  //     questionVotes: questionVotes as QuestionVote[],
-  //   }));
-
-  // const unsubscribe = onSnapshot(questionVotesQuery, (querySnapshot) => {
-  //   const questionVotes = querySnapshot.docs.map((questionVote) => ({
-  //     id: questionVote.id,
-  //     ...questionVote.data(),
-  //   }));
-
-  // });
-
-  // return () => unsubscribe();
-  //};
-
-  /**
-   * DO THIS INITIALLY FOR POST VOTES
-   */
-  // useEffect(() => {
-  //   if (!user?.uid || !communityData) return;
-  //   const questionVotesQuery = query(
-  //     collection(firestore, `users/${user?.uid}/questionVotes`),
-  //     where("communityId", "==", communityData?.id)
-  //   );
-  //   const unsubscribe = onSnapshot(questionVotesQuery, (querySnapshot) => {
-  //     const questionVotes = querySnapshot.docs.map((questionVote) => ({
-  //       id: questionVote.id,
-  //       ...questionVote.data(),
-  //     }));
-
-  //     setQuestionStateValue((prev) => ({
-  //       ...prev,
-  //       questionVotes: questionVotes as QuestionVote[],
-  //     }));
-  //   });
-
-  //   return () => unsubscribe();
-  // }, [user, communityData]);
 
   useEffect(() => {
     // Logout or no authenticated user

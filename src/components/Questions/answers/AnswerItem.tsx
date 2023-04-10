@@ -40,23 +40,6 @@ const AnswerItem: React.FC<AnswerItemProps> = ({
   isLoading,
   userId,
 }) => {
-  // const [loading, setLoading] = useState(false);
-
-  // const handleDelete = useCallback(async () => {
-  //   setLoading(true);
-  //   try {
-  //     const success = await onDeleteAnswer(answer);
-
-  //     if (!success) {
-  //       throw new Error("Error deleting answer");
-  //     }
-  //   } catch (error: any) {
-  //     console.log(error.message);
-  //     // setError
-  //     setLoading(false);
-  //   }
-  // }, [setLoading]);
-
   return (
     <Flex>
       <Box mr={2}>

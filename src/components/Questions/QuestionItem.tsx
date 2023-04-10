@@ -128,28 +128,6 @@ const QuestionItem: React.FC<QuestionItemContentProps> = ({
         <Stack spacing={1} p="10px 10px">
           {question.createdAt && (
             <Stack direction="row" spacing={0.6} align="center" fontSize="9pt">
-              {/* {homePage && (
-                <>
-                  {question.communityImageURL ? (
-                    <Image
-                      borderRadius="full"
-                      boxSize="18px"
-                      src={question.communityImageURL}
-                      mr={2}
-                    />
-                  ) : (
-                    <Icon as={FaReddit} fontSize={18} mr={1} color="blue.500" />
-                  )}
-                  <Link href={`r/${question.communityId}`}>
-                    <Text
-                      fontWeight={700}
-                      _hover={{ textDecoration: "underline" }}
-                      onClick={(event) => event.stopPropagation()}
-                    >{`r/${question.communityId}`}</Text>
-                  </Link>
-                  <Icon as={BsDot} color="gray.500" fontSize={8} />
-                </>
-              )} */}
               <Text color="gray.500">
                 Questioned by u/{question.userDisplayText}{" "}
                 {moment(new Date(question.createdAt.seconds * 1000)).fromNow()}

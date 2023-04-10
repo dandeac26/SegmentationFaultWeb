@@ -26,8 +26,8 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
             maxHeight="400px"
           />
           <Stack direction="row" mt={4}>
-            <Button height="28px" onClick={() => setSelectedTab("Post")}>
-              Back to Post
+            <Button height="28px" onClick={() => setSelectedTab("Question")}>
+              Back to Question
             </Button>
             <Button
               variant="outline"

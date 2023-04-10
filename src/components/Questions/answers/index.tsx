@@ -156,7 +156,7 @@ const Answers: React.FC<AnswersProps> = ({ user, selectedQuestion }) => {
   };
 
   useEffect(() => {
-    console.log("HERE IS SELECTED POST", selectedQuestion.id);
+    console.log("HERE IS SELECTED QUESTION", selectedQuestion.id);
 
     getQuestionAnswers();
   }, []);
