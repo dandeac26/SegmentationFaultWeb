@@ -1,21 +1,3 @@
-// import type { NextPage } from "next";
-// import Head from "next/head";
-// import Image from "next/image";
-// import { Inter } from "next/font/google";
-// import styles from "@/styles/Home.module.css";
-// import { Flex } from "@chakra-ui/react";
-
-// const inter = Inter({ subsets: ["latin"] });
-
-// export default function Home() {
-//   return <Flex bg="brand.400"></Flex>;
-// }
-
-// // const Home: NextPage = () =>{
-// //   return <div>Home</div>
-// // }
-
-// // export default Home
 import { useEffect } from "react";
 import {
   Center,
@@ -68,45 +50,7 @@ const Home: NextPage = () => {
     console.log("GETTING USER FEED");
     setLoading(true);
     try {
-      /**
-       * if snippets has no length (i.e. user not in any communities yet)
-       * do query for 20 questions ordered by voteStatus
-       */
       const feedQuestions: Question[] = [];
-      /*
-      // User has joined communities
-      
-        // Getting 2 questions from 3 communities that user has joined
-        let questionPromises: Array<Promise<QuerySnapshot<DocumentData>>> = [];
-        [0, 1, 2].forEach((index) => {
-          
-
-          questionPromises.push(
-            getDocs(
-              query(
-                collection(firestore, "questions"),
-                limit(3)
-              )
-            )
-          );
-        });
-        const queryResults = await Promise.all(questionPromises);
-        /**
-         * queryResults is an array of length 3, each with 0-2 questions from
-         * 3 communities that the user has joined
-         */
-      /*
-        queryResults.forEach((result) => {
-          const questions = result.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-          })) as Question[];
-          feedQuestions.push(...questions);
-        });
-      */
-      // User has not joined any communities yet
-
-      // console.log("USER HAS NO COMMUNITIES - GETTING GENERAL POSTS");
 
       const questionQuery = query(
         collection(firestore, "questions"),
@@ -121,7 +65,7 @@ const Home: NextPage = () => {
       feedQuestions.push(...questions);
       //}
 
-      console.log("HERE ARE FEED POSTS", feedQuestions);
+      console.log("HERE ARE FEED QUESTIONS", feedQuestions);
 
       setQuestionStateValue((prev) => ({
         ...prev,
@@ -186,12 +130,6 @@ const Home: NextPage = () => {
   };
 
   useEffect(() => {
-    /**
-     * initSnippetsFetched ensures that user snippets have been retrieved;
-     * the value is set to true when snippets are first retrieved inside
-     * of getSnippets in useCommunityData
-     */
-
     if (user) {
       getUserHomeQuestions();
     }
